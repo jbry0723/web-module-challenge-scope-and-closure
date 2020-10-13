@@ -27,10 +27,13 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ *  A:counter1 will always =0 because the count variable is only inside the scope of counterMaker. counter2 will add 1 for each time the function is run because the data is "saved" in the global scope
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ *  A:Counter 2 because the variable is defined outside the function.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ *  A. Counter1 would be perferable if you wanted to reset the count each time the function is run (perhaps add some more code that acts on it to get an outcome based off a user-defined value). Counter2 is perferable when you want the counter to store data over multiple iterations.
  *
 */
 
@@ -58,7 +61,8 @@ Write a function called `inning` that returns a random number of points that a t
 
 function inning(/*Code Here*/){
 
-    /*Code Here*/
+let points=(Math.floor(Math.random()*Math.floor (3)))
+return points
 
 }
 
@@ -76,12 +80,19 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
 
-  /*Code Here*/
+function finalScore(callback,n){
+  let hscore=0
+  let ascore=0
+for(i=0; i<n; i++){
+hscore=callback()+hscore
+ascore=callback()+ascore
+ }
+ fscore={home:hscore, away:ascore}
+return fscore
 
 }
-
+  
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -103,8 +114,21 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function scoreboard(scoreCallback,inningCallback, n){
+  let awayTeam=0
+  let homeTeam=0
+  for(i=0; i<n; i++){
+    scoreCallback(inningCallback)
+    awayTeam=scoreCallback(inningCallback)+awayTeam
+    homeTeam=scoreCallback(inningCallback)+homeTeam
+    console.log(`${i} inning ${awayTeam} - ${homeTeam}`)
+    }
+    
+  }
+  scoreboard(getInningScore, inning, 10)
 
-
+function getInningScore(callback){
+  return callback()
+ }
+ 
+ scoreboard(getInningScore, inning, 5)

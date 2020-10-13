@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+	A: Closure is the concept that variables exist within a certain scope and being outside that "scope" can create a type of "memory" as you perform the same operation on it repeatedly. It also means variable enclosed inside the scope cannot be called from outside it.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +64,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+	A:The closures are at the }} because that's when the functions terminate and you return to global scope.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+	A:The ${name} in the string would change. The ${newRoll} in the string will change because Math.random() is being invoked again and will return a different number. Everything else would remain the same.
 c. What is the lexical scope of `newRoll`? 
+  A: It is function scope within the anonymous function invoked within the personalDice function
 
 ### Task 2c - Exit Ticket
 

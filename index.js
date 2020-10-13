@@ -121,7 +121,7 @@ function scoreboard(scoreCallback,inningCallback, n){
     scoreCallback(inningCallback)
     awayTeam=scoreCallback(inningCallback)+awayTeam
     homeTeam=scoreCallback(inningCallback)+homeTeam
-    console.log(`${i} inning ${awayTeam} - ${homeTeam}`)
+    console.log(`${i+1} inning ${awayTeam} - ${homeTeam}`)
     }
     
   }
